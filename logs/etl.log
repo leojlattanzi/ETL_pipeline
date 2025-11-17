@@ -1,0 +1,23 @@
+2025-11-17 13:12:13,536 - INFO - Logger initialized.
+2025-11-17 13:12:13,546 - INFO - Loaded 3276 rows and 10 columns from C:\Users\leojl\Documents\Training\ETL_pipeline\data\water_potability.csv
+2025-11-17 13:22:01,329 - INFO - Logger initialized.
+2025-11-17 13:22:08,818 - INFO - Logger initialized.
+2025-11-17 13:22:08,829 - INFO - Loaded 3276 rows and 10 columns from C:\Users\leojl\Documents\Training\ETL_pipeline\data\water_potability.csv
+2025-11-17 13:22:28,424 - INFO - Logger initialized.
+2025-11-17 13:22:28,433 - INFO - Loaded 3276 rows and 10 columns from C:\Users\leojl\Documents\Training\ETL_pipeline\data\water_potability.csv
+2025-11-17 13:32:01,487 - INFO - Logger initialized.
+2025-11-17 13:32:01,503 - INFO - Loaded 3276 rows and 10 columns from C:\Users\leojl\Documents\Training\ETL_pipeline\data\water_potability.csv
+2025-11-17 13:32:21,002 - INFO - Logger initialized.
+2025-11-17 13:32:21,013 - INFO - Loaded 3276 rows and 10 columns from C:\Users\leojl\Documents\Training\ETL_pipeline\data\water_potability.csv
+2025-11-17 13:35:41,392 - INFO - Logger initialized.
+2025-11-17 13:35:41,403 - INFO - Loaded 3276 rows and 10 columns from C:\Users\leojl\Documents\Training\ETL_pipeline\data\water_potability.csv
+2025-11-17 13:35:56,059 - INFO - Logger initialized.
+2025-11-17 13:35:56,069 - INFO - Loaded 3276 rows and 10 columns from C:\Users\leojl\Documents\Training\ETL_pipeline\data\water_potability.csv
+2025-11-17 13:40:14,030 - INFO - Logger initialized.
+2025-11-17 13:40:34,616 - INFO - Logger initialized.
+2025-11-17 13:40:34,617 - INFO - ETL pipeline
+2025-11-17 13:40:34,628 - INFO - Loaded 3276 rows and 10 columns from C:\Users\leojl\Documents\Training\ETL_pipeline\data\water_potability.csv
+2025-11-17 13:40:34,639 - INFO - Starting transformation on 3276 rows
+2025-11-17 13:40:34,640 - INFO - Dropped 1265 rows with missing values
+2025-11-17 13:40:34,643 - INFO - Dropped 0 duplicate rows
+2025-11-17 13:40:34,645 - INFO - Transformation complete. 2011 rows remaining

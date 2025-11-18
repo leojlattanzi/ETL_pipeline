@@ -22,4 +22,3 @@ if not logger.handlers:
     logger.addHandler(console_handler)
 
 logger.info("Logger initialized.")
-

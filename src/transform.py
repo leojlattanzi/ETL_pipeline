@@ -8,7 +8,7 @@ def transform_data(df: pd.DataFrame):
 
     logger.info(f"Starting transformation on {len(df)} rows")
 
-    # rejected rows saved
+    # rejected rows
     rejects = pd.DataFrame(columns=df.columns)
 
     # remove missing values

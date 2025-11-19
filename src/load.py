@@ -17,7 +17,7 @@ def load_data(cleaned_rows, rejected_rows=None):
     )
     cur = conn.cursor()
 
-    # water_potability_cleaned tabke
+    # water_potability_cleaned table
     cur.execute("""
     CREATE TABLE IF NOT EXISTS water_potability_cleaned (
         id INT PRIMARY KEY,
@@ -63,7 +63,7 @@ def load_data(cleaned_rows, rejected_rows=None):
     if rejected_rows is not None and not rejected_rows.empty:
         cur.execute("""
         CREATE TABLE IF NOT EXISTS water_potability_rejected (
-            id SERIAL PRIMARY KEY,
+            id INT PRIMARY KEY,
             ph FLOAT,
             hardness FLOAT,
             solids FLOAT,
@@ -81,16 +81,29 @@ def load_data(cleaned_rows, rejected_rows=None):
                 'conductivity','organic_carbon','trihalomethanes',
                 'turbidity','potability']
 
-        for _, row in rejected_rows.iterrows():
+        for index, row in rejected_rows.iterrows():
             cur.execute("""
-                INSERT INTO water_potability_rejected (
-                    ph, hardness, solids, chloramines, sulfate, conductivity,
-                    organic_carbon, trihalomethanes, turbidity, potability
-                )
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s);
-            """, [float(row[c]) if c in row and pd.notna(row[c]) else None for c in cols])
+            INSERT INTO water_potability_rejected (
+                id, ph, hardness, solids, chloramines, sulfate, conductivity,
+                organic_carbon, trihalomethanes, turbidity, potability
+            )
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+            ON CONFLICT (id) DO NOTHING;
+        """, (
+            int(index),
+            float(row["ph"]) if pd.notna(row["ph"]) else None,
+            float(row["Hardness"]) if pd.notna(row["Hardness"]) else None,
+            float(row["Solids"]) if pd.notna(row["Solids"]) else None,
+            float(row["Chloramines"]) if pd.notna(row["Chloramines"]) else None,
+            float(row["Sulfate"]) if pd.notna(row["Sulfate"]) else None,
+            float(row["Conductivity"]) if pd.notna(row["Conductivity"]) else None,
+            float(row["Organic_carbon"]) if pd.notna(row["Organic_carbon"]) else None,
+            float(row["Trihalomethanes"]) if pd.notna(row["Trihalomethanes"]) else None,
+            float(row["Turbidity"]) if pd.notna(row["Turbidity"]) else None,
+            int(row["Potability"]) if pd.notna(row["Potability"]) else None
+        ))
 
-        logger.info(f"Loaded {len(rejected_rows)} rejected rows into PostgreSQL")
+    logger.info(f"Loaded {len(rejected_rows)} rejected rows into PostgreSQL")
 
     # commit + close connection
     conn.commit()

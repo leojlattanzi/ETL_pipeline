@@ -1,1 +1,25 @@
-Pandas
+pandas>=2.0
+psycopg2-binary>=2.9
+pytest>=9.0
+
+#--------Windows----------
+
+""" Create virtual environment """
+# python -m venv venv
+
+""" Activate venv """
+# venv\Scripts\activate
+
+#--------Mac/Linux--------
+
+""" Create virtual environment"""
+
+#python3 -m venv venv
+
+"""Activate venv"""
+#------------------------
+
+#source venv/bin/activate
+
+""" Install Dependancies """ 
+#pip install -r requirements.txt

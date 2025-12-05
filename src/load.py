@@ -102,8 +102,10 @@ def load_data(cleaned_rows, rejected_rows=None):
             float(row["Turbidity"]) if pd.notna(row["Turbidity"]) else None,
             int(row["Potability"]) if pd.notna(row["Potability"]) else None
         ))
-
-    logger.info(f"Loaded {len(rejected_rows)} rejected rows into PostgreSQL")
+    if rejected_rows is None or rejected_rows.empty:
+        logger.info("No rejected rows to load into PostgreSQL")
+    else:
+        logger.info(f"Loaded {len(rejected_rows)} rejected rows into PostgreSQL")
 
     # commit + close connection
     conn.commit()

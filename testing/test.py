@@ -5,7 +5,10 @@ from src.extract import extract_csv
 from src.transform import transform_data
 from src.load import load_data
 
-# Sample DataFrame for testing
+#Run the test cases with:
+# pytest -v testing/test.py
+
+# Sample dataframe for testing
 sample_df = pd.DataFrame({
     "ph": [7.0, 8.0],
     "hardness": [150, 150],
@@ -24,7 +27,7 @@ sample_df = pd.DataFrame({
 
 @patch("src.extract.logger")
 def test_extract_csv_success(mock_logger, tmp_path):
-    # Create temporary CSV
+    # temporary CSV
     file = tmp_path / "test.csv"
     sample_df.to_csv(file, index=False)
 
@@ -60,7 +63,7 @@ def test_transform_data_none_df(mock_logger):
 @patch("src.load.psycopg2.connect")
 @patch("src.load.logger")
 def test_load_data_clean_only(mock_logger, mock_connect):
-    mock_conn = MagicMock() #-- make mocks
+    mock_conn = MagicMock() 
     mock_cur = MagicMock()
     mock_connect.return_value = mock_conn
     mock_conn.cursor.return_value = mock_cur
